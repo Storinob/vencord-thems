@@ -1,4 +1,3 @@
-/* СКРЫВАЕТ КНОПКИ ВВОДА */
 [class^=chat_] [class*=textArea_] {
   margin-right: 24px;
   +[class^=buttons_] {
