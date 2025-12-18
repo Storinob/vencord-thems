@@ -1,0 +1,48 @@
+/* ===== MINI CONTEXT MENU ===== */
+[role="menu"] > [class*="scroller"] {
+  /* the higher the number, the greater the indentation from the edges of the menu */
+    margin: -7px;
+}
+
+[role="menuitem"] {
+    min-height: 24px !important; /* buttons size */
+    padding: 4px 8px !important; /* padding between buttons */
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+[role="menuitem"] [class*="iconContainer"] {
+    min-width: 20px;
+    margin-left: 5px;
+}
+
+/* icons */
+[role="menuitem"] svg,
+[role="menuitem"] img {
+    width: 20px;
+    height: 20px;
+}
+
+/* centralization of emoji */
+[class*="f563df"][class*="wrapper"] {
+    padding: 0 !important;
+    margin: 1px;
+}
+
+/* emojis part */
+[class*="f563df"][class*="button"] {
+    width: 0px;
+    height: 28px;
+    border-radius: 4px;
+}
+
+/* emojis size */
+[class*="f563df"][class*="icon"] {
+    width: 16px;
+    height: 16px;
+}
+
+/* indents between separators */
+[role="menu"] [role="separator"] {
+    margin: 1px 6px !important;
+}
