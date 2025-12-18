@@ -1,0 +1,152 @@
+/* options:
+ * --compact-member-list-transition-definition: defines the transition timing and easing
+ */
+
+.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) {
+    width: 64px !important;
+    min-width: 64px;
+    justify-content: flex-start;
+    z-index: 1;
+}
+
+.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > * {
+    width: 265px;
+    overflow: visible;
+    transition: translate var(--compact-member-list-transition-definition, 0.25s ease-out);
+}
+
+.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :hover {
+    translate: -201px 0;
+}
+
+.f75fb00fb7356cbe-content > .c8ffbb79449f399c-membersWrap > :not(:hover) {
+    padding-left: 1px;
+}
+
+/* group separator */
+
+.c8ffbb79449f399c-membersGroup {
+    transition: margin-right var(--compact-member-list-transition-definition, 0.25s ease-out);
+}
+
+.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :not(:hover) .c8ffbb79449f399c-membersGroup {
+    margin-right: -50px;
+}
+
+.c8ffbb79449f399c-membersGroup > [aria-hidden="true"]:not(:has(> [style]))::before,
+.c8ffbb79449f399c-membersGroup > [aria-hidden="true"]:has(> [style]) > [style]::before,
+h2.c8ffbb79449f399c-membersGroup:not(:has(span))::before {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    left: 20px;
+    margin-top: 10px;
+    background-color: currentColor;
+    transition: background-color var(--compact-member-list-transition-definition, 0.25s ease-out);
+}
+
+.c8ffbb79449f399c-membersGroup > [aria-hidden="true"]:not(:has(> [style])),
+.c8ffbb79449f399c-membersGroup > [aria-hidden="true"]:has(> [style]) > [style],
+h2.c8ffbb79449f399c-membersGroup:not(:has(span)) {
+    transition: margin-left var(--compact-member-list-transition-definition, 0.25s ease-out);
+}
+
+.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :not(:hover) .c8ffbb79449f399c-membersGroup > [aria-hidden="true"]:not(:has(> [style])),
+.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :not(:hover) .c8ffbb79449f399c-membersGroup > [aria-hidden="true"]:has(> [style]) > [style],
+.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :not(:hover) h2.c8ffbb79449f399c-membersGroup:not(:has(span)) {
+    margin-left: 50px;
+}
+
+.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :hover .c8ffbb79449f399c-membersGroup > [aria-hidden="true"]:not(:has(> [style]))::before,
+.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :hover .c8ffbb79449f399c-membersGroup > [aria-hidden="true"]:has(> [style]) > [style]::before,
+.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :hover h2.c8ffbb79449f399c-membersGroup:not(:has(span))::before {
+    background-color: transparent;
+}
+
+.c8ffbb79449f399c-membersGroup .ee71ee16cc02184d-roleIcon {
+    translate: 8px -8px;
+    transition: translate var(--compact-member-list-transition-definition, 0.25s ease-out);
+}
+
+.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :hover .c8ffbb79449f399c-membersGroup .ee71ee16cc02184d-roleIcon {
+    translate: 0 0;
+}
+
+/* member */
+
+._5d473ecff348c314-member ._5d473ecff348c314-memberInner > :not(._91a9d7f7e5248a56-avatar) {
+    translate: 8px 0;
+    transition: translate var(--compact-member-list-transition-definition, 0.25s ease-out);
+}
+
+.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :hover ._5d473ecff348c314-member ._5d473ecff348c314-memberInner > :not(._91a9d7f7e5248a56-avatar) {
+    translate: 0 0;
+}
+
+._5d473ecff348c314-member ._4bbc6dc06e75ad52-container {
+    width: 46px;
+}
+
+.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :hover ._5d473ecff348c314-member ._4bbc6dc06e75ad52-container {
+    width: 100%;
+}
+
+/* private thread instructions */
+
+._7641b507c6cdbb10-instructions, ._7641b507c6cdbb10-private {
+    transition: color var(--compact-member-list-transition-definition, 0.25s ease-out);
+}
+
+._7641b507c6cdbb10-private > svg {
+    color: var(--text-default);
+    transition: translate var(--compact-member-list-transition-definition, 0.25s ease-out);
+    translate: 9px 0;
+}
+
+.f75fb00fb7356cbe-content > .c8ffbb79449f399c-membersWrap > :not(:hover) ._7641b507c6cdbb10-divider {
+    width: 30px;
+}
+
+.f75fb00fb7356cbe-content > .c8ffbb79449f399c-membersWrap > :not(:hover) :is(._7641b507c6cdbb10-instructions, ._7641b507c6cdbb10-private) {
+    color: transparent !important;
+}
+
+.f75fb00fb7356cbe-content > .c8ffbb79449f399c-membersWrap > :hover ._7641b507c6cdbb10-private > svg {
+    translate: 0 0;
+}
+
+/* Vencord Plugin support: MemberCount */
+
+/* Assumption: vc-membercount-widget always has 1 row when expanded */
+.vc-membercount-widget {
+    height: 36px;
+    margin-top: 0;
+    align-content: flex-end;
+}
+
+/* I don't want to deal with different sizes of circle icons */
+.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :not(:hover) .vc-membercount-widget svg:not(.vc-membercount-voice-icon) {
+    display: none;
+}
+
+.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :not(:hover) .vc-membercount-widget {
+    padding-left: 0;
+    width: 64px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: flex-end;
+    row-gap: 0;
+    font-size: 10px;
+}
+
+.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :not(:hover) .vc-membercount-widget .vc-membercount-voice-icon {
+    width: 8px;
+    height: 8px;
+}
+
+.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :not(:hover) .vc-membercount-widget .vc-membercount-container {
+    column-gap: 2px
+}
