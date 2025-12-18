@@ -6,7 +6,7 @@
 
 [role="menuitem"] {
     min-height: 20px !important; /* buttons size */
-    padding: 4px 5px !important; /* padding between buttons */
+    padding: 3px 5px !important; /* padding between buttons */
     font-size: 14px;
     white-space: nowrap;
 }
