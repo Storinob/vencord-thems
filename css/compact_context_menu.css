@@ -8,7 +8,7 @@ div[aria-label="Message Actions"]>div[dir="ltr"] {
     }
 
     div[role="separator"] {
-        margin: 1px 8px;
+        margin: 1px 1px;
     }
 
     div>div>div>div[class*="-layer"]>div[class*="submenuPaddingContainer"] {
