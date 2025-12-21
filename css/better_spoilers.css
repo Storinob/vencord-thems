@@ -1,0 +1,26 @@
+:root {
+    --spoiler-blur-hover: 8px;
+}
+[class*="-attachmentContainer"][class*="-spoilerContent"] {
+    background-color: unset;
+    &[class*="-hiddenSpoiler"] {
+        > [class*="-spoilerWarning"] {
+            transition: opacity 50ms ease;
+        }
+        [class*="-imageContent"] {
+            filter: none !important;
+            [class*="-imageWrapper"] > [class*="-clickableWrapper"] {
+                filter: blur(var(--custom-message-attachment-spoiler-blur-radius));
+                transition: filter 80ms ease-out;
+            }
+        }
+        &:hover {
+            > [class*="-spoilerWarning"] {
+                opacity: 0.2;
+            }
+            [class*="-imageWrapper"] > [class*="-clickableWrapper"] {
+                filter: blur(var(--spoiler-blur-hover));
+            }
+        }
+    }
+}
