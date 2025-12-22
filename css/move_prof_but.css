@@ -1,3 +1,4 @@
+/* Move profile buttons back to the top right */
 .user-profile-modal-v2 .profile__9c3be {
   anchor-name: --profile-anchor;
   --tooltip-bg: color-mix(in oklab, var(--neutral-79) 100%, var(--custom-theme-base-color, #000) var(--custom-theme-base-color-amount, 0%));
