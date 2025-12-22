@@ -1,9 +1,5 @@
 /* compact context menu */
-div[aria-label="Message Actions"]>div[dir="ltr"],
-div[aria-label="Text Area Actions"]>div[dir="ltr"],
-div[aria-label="User Settings Actions"]>div[dir="ltr"],
-div[aria-label="Audio Device Actions"]>div[dir="ltr"],
-div[aria-label="Image Actions"]>div[dir="ltr"] {
+div[aria-label*="Actions"]>div[dir="ltr"] {
 
     margin: -4px;
     height: fit-content;
@@ -13,10 +9,10 @@ div[aria-label="Image Actions"]>div[dir="ltr"] {
     }
 
     div[role="separator"] {
-        margin: 1px 1px;
+        margin: 1px 8px;
     }
 
-    div>div>div[class*="-layer"]>div[class*="submenuPaddingContainer"] {
+    div>div>div>div[class*="-layer"]>div[class*="submenuPaddingContainer"] {
         transform: translate(0, -5px);
 
         padding: 0 4px;
