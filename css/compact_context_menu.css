@@ -1,4 +1,105 @@
 /* compact context menu */
+div[aria-label="Message Actions"]>div[dir="ltr"] {
+
+    div>div>div>div[class$="-layer"]>div[class$="-submenuPaddingContainer"] {
+        transform: translate(0, 0px) !important;
+    }
+}
+
+div[aria-label$="ctions"]>div[dir="ltr"] {
+
+    margin: -4px;
+    height: fit-content;
+
+    div[class*="-wrapper"] {
+        padding: 2px;
+    }
+
+    div[role="separator"] {
+        margin: 1px 8px;
+    }
+
+
+    div>div>div>div[class$="-layer"]>div[class$="-submenuPaddingContainer"] {
+        transform: translate(0, -5px);
+
+        padding: 0 4px;
+
+        div[class*="-submenu"] {
+
+            div[class*="-scroller"] {
+                padding: 4px;
+            }
+        }
+    }
+}
+
+div[class$="appAsidePanelWrapper"]>div>div>div>div>div[class*="-animatorRight"]>div[class$="-popout"] {
+
+    margin: 0 -4px 0 0;
+    padding: 0px 8px;
+
+    div[class$="-title"] {
+        padding: 6px 0 4px 0;
+
+    }
+
+    div[class$="-more"] {
+        margin: 0 4px;
+        padding: 4px 0 6px 0;
+    }
+}
+
+div[aria-label="Stop Streaming"]>div[dir="ltr"],
+div[aria-label="Camera"]>div[dir="ltr"] {
+
+    padding: 4px;
+    height: fit-content;
+
+    div[role="separator"] {
+        margin: 1px 8px;
+    }
+
+    div[class$="-clickTrapContainer"]>div[class$="-layer"]>div[class*="submenuPaddingContainer"] {
+
+        transform: translate(0, -5px);
+
+        padding: 0 4px;
+
+        div[aria-activedescendant^="manage-streams"]>div[dir="ltr"] {
+            padding: 4px;
+        }
+    }
+
+    div[aria-activedescendant^="video-device-context"] {
+        margin: 0 0 0 4px;
+
+        div[dir="ltr"] {
+            padding: 4px;
+            height: fit-content;
+        }
+    }
+
+    div[id="manage-streams-change-windows"]>div>div>div>div>div[role="menu"] {
+
+        transform: translate(0, -5px);
+
+        div[dir="ltr"] {
+
+            padding: 4px;
+            height: fit-content;
+        }
+    }
+}
+
+div[aria-activedescendant^="textarea-context-suggestions"]>div>div>div>div[class$="-layer"] {
+
+    margin: 0 -4px 0 0;
+
+    div>div[role="menu"] {
+... (10 lines left)
+
+/* old code
 div[aria-label*="Actions"]>div[dir="ltr"] {
 
     margin: -4px;
@@ -24,4 +125,4 @@ div[aria-label*="Actions"]>div[dir="ltr"] {
             }
         }
     }
-}
+} */
