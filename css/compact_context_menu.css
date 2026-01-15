@@ -1,128 +1,26 @@
-/* compact context menu */
-div[aria-label="Message Actions"]>div[dir="ltr"] {
-
-    div>div>div>div[class$="-layer"]>div[class$="-submenuPaddingContainer"] {
-        transform: translate(0, 0px) !important;
-    }
+/* ===== MINI CONTEXT MENU ===== */
+[role="menu"] > [class*="scroller"] {
+  /* the higher the number, the greater the indentation from the edges of the menu */
+    margin: -9px;
 }
-
-div[aria-label$="ctions"]>div[dir="ltr"] {
-
-    margin: -4px;
-    height: fit-content;
-
-    div[class*="-wrapper"] {
-        padding: 2px;
-    }
-
-    div[role="separator"] {
-        margin: 1px 8px;
-    }
-
-
-    div>div>div>div[class$="-layer"]>div[class$="-submenuPaddingContainer"] {
-        transform: translate(0, -5px);
-
-        padding: 0 4px;
-
-        div[class*="-submenu"] {
-
-            div[class*="-scroller"] {
-                padding: 4px;
-            }
-        }
-    }
+[role="menuitem"] {
+    min-height: 24px !important; /* buttons size */
+    padding: 4px 8px !important; /* padding between buttons */
+    font-size: 14px;
+    white-space: nowrap;
 }
-
-div[class$="appAsidePanelWrapper"]>div>div>div>div>div[class*="-animatorRight"]>div[class$="-popout"] {
-
-    margin: 0 -4px 0 0;
-    padding: 0px 8px;
-
-    div[class$="-title"] {
-        padding: 6px 0 4px 0;
-
-    }
-
-    div[class$="-more"] {
-        margin: 0 4px;
-        padding: 4px 0 6px 0;
-    }
+[role="menuitem"] [class*="iconContainer"] {
+    min-width: 20px;
+    margin-left: 5px;
 }
-
-div[aria-label="Stop Streaming"]>div[dir="ltr"],
-div[aria-label="Camera"]>div[dir="ltr"] {
-
-    padding: 4px;
-    height: fit-content;
-
-    div[role="separator"] {
-        margin: 1px 8px;
-    }
-
-    div[class$="-clickTrapContainer"]>div[class$="-layer"]>div[class*="submenuPaddingContainer"] {
-
-        transform: translate(0, -5px);
-
-        padding: 0 4px;
-
-        div[aria-activedescendant^="manage-streams"]>div[dir="ltr"] {
-            padding: 4px;
-        }
-    }
-
-    div[aria-activedescendant^="video-device-context"] {
-        margin: 0 0 0 4px;
-
-        div[dir="ltr"] {
-            padding: 4px;
-            height: fit-content;
-        }
-    }
-
-    div[id="manage-streams-change-windows"]>div>div>div>div>div[role="menu"] {
-
-        transform: translate(0, -5px);
-
-        div[dir="ltr"] {
-
-            padding: 4px;
-            height: fit-content;
-        }
-    }
+[role="menuitem"] svg,
+[role="menuitem"] img {
+    width: 20px;
+    height: 20px;
 }
-
-div[aria-activedescendant^="textarea-context-suggestions"]>div>div>div>div[class$="-layer"] {
-
-    margin: 0 -4px 0 0;
-
-    div>div[role="menu"] {
-... (10 lines left)
-
-/* old code
-div[aria-label*="Actions"]>div[dir="ltr"] {
-
-    margin: -4px;
-    height: fit-content;
-
-    div[class*="-wrapper"] {
-        padding: 2px;
-    }
-
-    div[role="separator"] {
-        margin: 1px 8px;
-    }
-
-    div>div>div>div[class*="-layer"]>div[class*="submenuPaddingContainer"] {
-        transform: translate(0, -5px);
-
-        padding: 0 4px;
-
-        div[class*="-submenu"] {
-
-            div[class*="-scroller"] {
-                padding: 4px;
-            }
-        }
-    }
-} */
+[role="menu"] [role="separator"] {
+    margin: 1px 6px !important;
+}
+[role="menu"] [class*="f563df"][class*="wrapper"] {
+    display: none !important;
+}
