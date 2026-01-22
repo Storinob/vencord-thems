@@ -1,6 +1,6 @@
 import definePlugin from "@utils/types";
 import { FluxDispatcher } from "@webpack/common";
-const IDLE_TIMEOUT = 2000;
+const IDLE_TIMEOUT = 4000;
 let timeoutId: NodeJS.Timeout | null = null;
 export default definePlugin({
     name: "FocusIdle",
