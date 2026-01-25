@@ -2,35 +2,35 @@
  * --compact-member-list-transition-definition: defines the transition timing and easing
  */
 
-.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) {
+.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) {
     width: 64px !important;
     min-width: 64px;
     justify-content: flex-start;
     z-index: 1;
 }
 
-.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > * {
+.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > * {
     width: 265px;
     overflow: visible;
     transition: translate var(--compact-member-list-transition-definition, 0.25s ease-out);
 }
 
-.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :hover {
+.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > :hover {
     translate: -201px 0;
 }
 
-.f75fb00fb7356cbe-content > .c8ffbb79449f399c-membersWrap > :not(:hover) {
+.content_f75fb0 > .membersWrap_c8ffbb > :not(:hover) {
     padding-left: 1px;
 }
 
 /* group separator */
 
-.c8ffbb79449f399c-membersGroup,
-.c8ffbb79449f399c-membersGroup [style] {
+.membersGroup_c8ffbb,
+.membersGroup_c8ffbb [style] {
     transition: color var(--compact-member-list-transition-definition, 0.25s ease-out);
 }
 
-.c8ffbb79449f399c-membersGroup::before {
+.membersGroup_c8ffbb::before {
     content: "";
     position: absolute;
     width: 24px;
@@ -41,64 +41,64 @@
     transition: background-color var(--compact-member-list-transition-definition, 0.25s ease-out);
 }
 
-.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :not(:hover) .c8ffbb79449f399c-membersGroup,
-.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :not(:hover) .c8ffbb79449f399c-membersGroup [style] {
+.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > :not(:hover) .membersGroup_c8ffbb,
+.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > :not(:hover) .membersGroup_c8ffbb [style] {
     color: transparent !important;
 }
 
-.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :hover .c8ffbb79449f399c-membersGroup::before {
+.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > :hover .membersGroup_c8ffbb::before {
     background-color: transparent;
 }
 
-.c8ffbb79449f399c-membersGroup .ee71ee16cc02184d-roleIcon {
+.membersGroup_c8ffbb .roleIcon_ee71ee {
     translate: 8px -8px;
     transition: translate var(--compact-member-list-transition-definition, 0.25s ease-out);
 }
 
-.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :hover .c8ffbb79449f399c-membersGroup .ee71ee16cc02184d-roleIcon {
+.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > :hover .membersGroup_c8ffbb .roleIcon_ee71ee {
     translate: 0 0;
 }
 
 /* member */
 
-._5d473ecff348c314-member ._5d473ecff348c314-memberInner > :not(._91a9d7f7e5248a56-avatar) {
+.member__5d473 .memberInner__5d473 > :not(.avatar__91a9d) {
     translate: 8px 0;
     transition: translate var(--compact-member-list-transition-definition, 0.25s ease-out);
 }
 
-.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :hover ._5d473ecff348c314-member ._5d473ecff348c314-memberInner > :not(._91a9d7f7e5248a56-avatar) {
+.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > :hover .member__5d473 .memberInner__5d473 > :not(.avatar__91a9d) {
     translate: 0 0;
 }
 
-._5d473ecff348c314-member ._4bbc6dc06e75ad52-container {
+.member__5d473 .container__4bbc6 {
     width: 46px;
 }
 
-.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :hover ._5d473ecff348c314-member ._4bbc6dc06e75ad52-container {
+.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > :hover .member__5d473 .container__4bbc6 {
     width: 100%;
 }
 
 /* private thread instructions */
 
-._7641b507c6cdbb10-instructions, ._7641b507c6cdbb10-private {
+.instructions__7641b, .private__7641b {
     transition: color var(--compact-member-list-transition-definition, 0.25s ease-out);
 }
 
-._7641b507c6cdbb10-private > svg {
+.private__7641b > svg {
     color: var(--text-default);
     transition: translate var(--compact-member-list-transition-definition, 0.25s ease-out);
     translate: 9px 0;
 }
 
-.f75fb00fb7356cbe-content > .c8ffbb79449f399c-membersWrap > :not(:hover) ._7641b507c6cdbb10-divider {
+.content_f75fb0 > .membersWrap_c8ffbb > :not(:hover) .divider__7641b {
     width: 30px;
 }
 
-.f75fb00fb7356cbe-content > .c8ffbb79449f399c-membersWrap > :not(:hover) :is(._7641b507c6cdbb10-instructions, ._7641b507c6cdbb10-private) {
+.content_f75fb0 > .membersWrap_c8ffbb > :not(:hover) :is(.instructions__7641b, .private__7641b) {
     color: transparent !important;
 }
 
-.f75fb00fb7356cbe-content > .c8ffbb79449f399c-membersWrap > :hover ._7641b507c6cdbb10-private > svg {
+.content_f75fb0 > .membersWrap_c8ffbb > :hover .private__7641b > svg {
     translate: 0 0;
 }
 
@@ -112,11 +112,11 @@
 }
 
 /* I don't want to deal with different sizes of circle icons */
-.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :not(:hover) .vc-membercount-widget svg:not(.vc-membercount-voice-icon) {
+.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > :not(:hover) .vc-membercount-widget svg:not(.vc-membercount-voice-icon) {
     display: none;
 }
 
-.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :not(:hover) .vc-membercount-widget {
+.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > :not(:hover) .vc-membercount-widget {
     padding-left: 0;
     width: 64px;
     flex-direction: column;
@@ -128,25 +128,11 @@
     font-size: 10px;
 }
 
-.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :not(:hover) .vc-membercount-widget .vc-membercount-voice-icon {
+.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > :not(:hover) .vc-membercount-widget .vc-membercount-voice-icon {
     width: 8px;
     height: 8px;
 }
 
-.f75fb00fb7356cbe-content > :is(.c8ffbb79449f399c-container, .c8ffbb79449f399c-membersWrap) > :not(:hover) .vc-membercount-widget .vc-membercount-container {
+.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > :not(:hover) .vc-membercount-widget .vc-membercount-container {
     column-gap: 2px
-}
-
-/* discord nitro custom theme fixes */
-
-.f75fb00fb7356cbe-content > .c8ffbb79449f399c-container > .c8ffbb79449f399c-membersWrap {
-    background: var(--background-gradient-chat, var(--custom-channel-members-bg));
-}
-
-.f75fb00fb7356cbe-content > .c8ffbb79449f399c-container > .c8ffbb79449f399c-membersWrap > .c8ffbb79449f399c-members {
-    background: transparent;
-}
-
-._5d473ecff348c314-member {
-    background: transparent
 }
