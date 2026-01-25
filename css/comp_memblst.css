@@ -137,8 +137,3 @@
     column-gap: 2px
 }
 
-/* Hide Member List Activities */
-[class*='membersGroup']:has([role=button]),
-[class*='member'] [class*='container']:has([class*='badges']) {
-  display: none;
-}
