@@ -1,0 +1,27 @@
+.folderGroup__48112 .folderIcon__48112>svg {
+  background-color: hsl(from var(--custom-folder-color) h s 50);
+}
+.folderGroup__48112 .vc-plainFolderIcon-plain {
+  background-color: hsl(from var(--custom-folder-color) h s l);
+}
+/*.folderGroup__48112.isExpanded__48112 .folderIcon__48112>svg {
+  background-color: color-mix(in oklab, var(--custom-folder-color, var(--badge-background-default)) 100%, transparent);
+}*/
+.folderGroup__48112.folderGroup__48112.isExpanded__48112 .vc-plainFolderIcon-plain {
+  background-color: color-mix(in oklab, var(--custom-folder-color, var(--badge-background-default)) 0%, transparent);
+}
+.folderGroup__48112 .folderIcon__48112>svg {
+  mask-size: cover;
+  >path {
+    display: none;
+  }
+}
+[data-dnd-name="Folder 1"] .folderIcon__48112>svg{
+  mask-image: url("https://raw.githubusercontent.com/Eejit43/discord-icons/9dd285a4eaa1908ee7f2008bd74ae560189a58ea/assets/svgs/from-discord/mail.svg");
+}
+[data-dnd-name="Folder 2"] .folderIcon__48112>svg{
+  mask-image: url("https://raw.githubusercontent.com/Eejit43/discord-icons/9dd285a4eaa1908ee7f2008bd74ae560189a58ea/assets/svgs/from-discord/stage-channel.svg");
+}
+[data-dnd-name="Folder 3"] .folderIcon__48112>svg{
+  mask-image: url("https://raw.githubusercontent.com/Eejit43/discord-icons/9dd285a4eaa1908ee7f2008bd74ae560189a58ea/assets/svgs/from-discord/command.svg");
+}
