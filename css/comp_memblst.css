@@ -1,138 +1,50 @@
-/* options:
- * --compact-member-list-transition-definition: defines the transition timing and easing
- */
+/* ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ */
+/* Compact Member List */
+/* ___________________ */
+/* https://discord.com/channels/1173279886065029291/1498171209559314453 */
 
-.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) {
-    width: 64px !important;
-    min-width: 64px;
-    justify-content: flex-start;
-    z-index: 1;
-}
-
-.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > * {
-    width: 265px;
-    overflow: visible;
-    transition: translate var(--compact-member-list-transition-definition, 0.25s ease-out);
-}
-
-.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > :hover {
-    translate: -201px 0;
-}
-
-.content_f75fb0 > .membersWrap_c8ffbb > :not(:hover) {
-    padding-left: 1px;
-}
-
-/* group separator */
-
-.membersGroup_c8ffbb,
-.membersGroup_c8ffbb [style] {
-    transition: color var(--compact-member-list-transition-definition, 0.25s ease-out);
-}
-
-.membersGroup_c8ffbb::before {
-    content: "";
-    position: absolute;
-    width: 24px;
-    height: 2px;
-    left: 20px;
-    margin-top: 10px;
-    background-color: var(--channels-default);
-    transition: background-color var(--compact-member-list-transition-definition, 0.25s ease-out);
-}
-
-.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > :not(:hover) .membersGroup_c8ffbb,
-.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > :not(:hover) .membersGroup_c8ffbb [style] {
-    color: transparent !important;
-}
-
-.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > :hover .membersGroup_c8ffbb::before {
-    background-color: transparent;
-}
-
-.membersGroup_c8ffbb .roleIcon_ee71ee {
-    translate: 8px -8px;
-    transition: translate var(--compact-member-list-transition-definition, 0.25s ease-out);
-}
-
-.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > :hover .membersGroup_c8ffbb .roleIcon_ee71ee {
-    translate: 0 0;
-}
-
-/* member */
-
-.member__5d473 .memberInner__5d473 > :not(.avatar__91a9d) {
-    translate: 8px 0;
-    transition: translate var(--compact-member-list-transition-definition, 0.25s ease-out);
-}
-
-.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > :hover .member__5d473 .memberInner__5d473 > :not(.avatar__91a9d) {
-    translate: 0 0;
-}
-
-.member__5d473 .container__4bbc6 {
-    width: 46px;
-}
-
-.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > :hover .member__5d473 .container__4bbc6 {
-    width: 100%;
-}
-
-/* private thread instructions */
-
-.instructions__7641b, .private__7641b {
-    transition: color var(--compact-member-list-transition-definition, 0.25s ease-out);
-}
-
-.private__7641b > svg {
-    color: var(--text-default);
-    transition: translate var(--compact-member-list-transition-definition, 0.25s ease-out);
-    translate: 9px 0;
-}
-
-.content_f75fb0 > .membersWrap_c8ffbb > :not(:hover) .divider__7641b {
-    width: 30px;
-}
-
-.content_f75fb0 > .membersWrap_c8ffbb > :not(:hover) :is(.instructions__7641b, .private__7641b) {
-    color: transparent !important;
-}
-
-.content_f75fb0 > .membersWrap_c8ffbb > :hover .private__7641b > svg {
-    translate: 0 0;
-}
-
-/* Vencord Plugin support: MemberCount */
-
-/* Assumption: vc-membercount-widget always has 1 row when expanded */
+.membersWrap_c8ffbb {
+overflow: hidden;
+.members_c8ffbb {
+height: 120%;
+scrollbar-width: none !important;
+/* member count */
 .vc-membercount-widget {
-    height: 36px;
-    margin-top: 0;
-    align-content: flex-end;
+  margin: 0.33em 0 0;
 }
+/* panel */
+.content_d125d2 {
+  padding: 0 0.25ch;
+  /* activity header bar */
+  .headerContainer__095fe {
+    /* padding-left: 0; */
+  }
 
-/* I don't want to deal with different sizes of circle icons */
-.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > :not(:hover) .vc-membercount-widget svg:not(.vc-membercount-voice-icon) {
-    display: none;
-}
+  /* activity cards */
+  .container__0f2e8  {
+    margin: 0.25em;
+    padding: 0.25em;
+  }
 
-.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > :not(:hover) .vc-membercount-widget {
-    padding-left: 0;
-    width: 64px;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-content: center;
-    align-items: center;
-    justify-content: flex-end;
-    row-gap: 0;
-    font-size: 10px;
-}
+  /* role header
+  .membersGroup_c8ffbb {
+    padding: 0.25em 0 0 0.125ch;
+    margin: 0;
+  } */
 
-.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > :not(:hover) .vc-membercount-widget .vc-membercount-voice-icon {
-    width: 8px;
-    height: 8px;
-}
+  /* each member row
+  .member__5d473,
+  .childContainer__91a9d,
+  .memberInner__5d473 {
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
 
-.content_f75fb0 > :is(.container_c8ffbb, .membersWrap_c8ffbb) > :not(:hover) .vc-membercount-widget .vc-membercount-container {
-    column-gap: 2px
-}
+    /* pfp
+    .avatar__91a9d {
+      scale: 0.9;
+      margin: 0;
+      padding-right: 0.5ch;
+    } */
+  }
+}}}
