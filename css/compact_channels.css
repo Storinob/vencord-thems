@@ -2,7 +2,7 @@
   /*---===< CHANNEL HIGHLIGHTER AND SPACER >===---*/
   --chs-color-1: hsla(169, 46%, 39%, 1); /* 277, 59%, 76%, 0.30 */
   --chs-color-2: hsla(169, 46%, 39%, 1);
-  --chs-icon-hover: hsl(267, 84%, 81%);
+  --chs-icon-hover: hsl(169, 46%, 39%); /* 267, 84%, 81% */
   --chs-icon-scale: 0.9;
   --chs-channel-spacing: 0.1px;
   --chs-channel-size: 0.1px;
