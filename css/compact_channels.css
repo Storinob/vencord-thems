@@ -1,6 +1,6 @@
 :root {
   /*---===< CHANNEL HIGHLIGHTER AND SPACER >===---*/
-  --chs-color-1: hsla(169, 46%, 39%, 0.30); /* 277, 59%, 76%, 0.30 */
+  --chs-color-1: hsla(169, 46%, 39%, 1); /* 277, 59%, 76%, 0.30 */
   --chs-color-2: hsla(316, 73%, 84%, 0.30);
   --chs-icon-hover: hsl(267, 84%, 81%);
   --chs-icon-scale: 0.9;
