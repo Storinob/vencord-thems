@@ -16,12 +16,12 @@
     display: none;
   }
 }
-[data-dnd-name="Folder 1"] .folderIcon__48112>svg{
+[data-dnd-name="Communicate"] .folderIcon__48112>svg{
   mask-image: url("https://raw.githubusercontent.com/Eejit43/discord-icons/9dd285a4eaa1908ee7f2008bd74ae560189a58ea/assets/svgs/from-discord/mail.svg");
 }
-[data-dnd-name="Folder 2"] .folderIcon__48112>svg{
+[data-dnd-name="Social"] .folderIcon__48112>svg{
   mask-image: url("https://raw.githubusercontent.com/Eejit43/discord-icons/9dd285a4eaa1908ee7f2008bd74ae560189a58ea/assets/svgs/from-discord/stage-channel.svg");
 }
-[data-dnd-name="Folder 3"] .folderIcon__48112>svg{
+[data-dnd-name="Stuff"] .folderIcon__48112>svg{
   mask-image: url("https://raw.githubusercontent.com/Eejit43/discord-icons/9dd285a4eaa1908ee7f2008bd74ae560189a58ea/assets/svgs/from-discord/command.svg");
 }
