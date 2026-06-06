@@ -9,7 +9,7 @@
 /* Highlight folder icons */
 .folderButton__48112[aria-expanded="false"] {
     .folderButtonInner__48112 {
-        filter: brightness(10%) saturate(70%);
+        filter: brightness(85%) saturate(70%);
         &:hover {filter: none}
     }
 }
