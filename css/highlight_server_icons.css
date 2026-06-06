@@ -6,10 +6,10 @@
     }
     [data-list-item-id^="guildsnav"][aria-selected="true"] {filter: none}
 }
-/* Highlight folder icons */
+/* Highlight folder icons
 .folderButton__48112[aria-expanded="false"] {
     .folderButtonInner__48112 {
         filter: brightness(70%) saturate(70%);
         &:hover {filter: none}
     }
-}
+} */
