@@ -1,11 +1,9 @@
+[aria-label="Send a gift"],
+.app-launcher-entrypoint {
+  display: none;
+}
 .buttons__74017 {
-    /* Send a Gift */
-    &>.button__24af7[aria-disabled="false"],
-    /* GIFs */
-    &>.expression-picker-chat-input-button:not(.vc-chatbar-button):nth-last-of-type(4),
-    &>.expression-picker-chat-input-button:not(.vc-chatbar-button):nth-last-of-type(5),
-    &>.expression-picker-chat-input-button:not(.vc-chatbar-button):nth-last-of-type(1),
-    /* App Launcher */
+    &>.expression-picker-chat-input-button:not(.vc-chatbar-button):nth-last-of-type(3),
     &>.app-launcher-entrypoint {
         display: none;
     }
