@@ -1,0 +1,307 @@
+@container style(--dms-tabs:true) {
+    .scroller__99e7c[data-list-id^="private-channels-uid_"] {
+        scrollbar-width: 0;
+        scrollbar-color: transparent;
+
+        &>.content_d125d2 {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            justify-content: space-evenly;
+
+            &>div:not([class]):first-child,
+            &>div[role="button"],
+            &>.privateChannelsHeaderContainer__99e7c,
+            &>.channel__972a0.dm__972a0 {
+                width: 100%;
+                min-width: 0;
+            }
+
+            &>.friendsButtonContainer_e6b769,
+            &>div:nth-of-type(3),
+            &>.channel__972a0:not(.dm__972a0),
+            &>.wrapper__553bf {
+                margin: 0;
+            }
+
+            .channel__972a0:not(.dm__972a0) {
+                margin: 0 4px !important;
+
+                &>.linkButton__972a0>.link__972a0 {
+                    padding: 6px;
+                    justify-content: center;
+
+                    &>.avatarWithText__972a0 {
+                        padding: 0;
+
+                        &>.avatar__20a53 { 
+                            margin: 0; 
+                        }
+
+                        &>.content__20a53 { 
+                            display: none; 
+                        }
+                    }
+
+                    /* Message Requests */
+                    &>.numberBadge__463b7 {
+                        position: absolute;
+                        left: 17.5px;
+                        bottom: 0;
+                        transform: scale(0.7);
+                    }
+
+                    /* Nitro */
+                    &>.premiumBadge__6d7da {
+                        position: absolute;
+                        bottom: 0;
+                        transform: scale(0.7);
+                        background-color: var(--badge-notification-background);
+
+                        &>.BadgeClockIcon__6d7da { 
+                            display: none; 
+                        }
+
+                        &>.eyebrow_cf4812 { 
+                            color: var(--white) !important; 
+                        }
+                    }
+
+                    &>.countDown__61bcd {
+                        position: absolute;
+                        bottom: -1px;
+                        transform: scale(0.7);
+
+                        &>.premiumPill__9f7e5 {
+                            background-color: var(--badge-notification-background);
+                        }
+  
+                        &>.eyebrow_cf4812 {
+                            background-color: var(--badge-notification-background);
+                            color: var(--white);
+                        }
+                    }
+
+                    &>.eyebrow_cf4812 {
+                        position: absolute;
+                        transform: scale(0.7);
+                        bottom: 0;
+                        background-color: var(--badge-notification-background);
+                        color: var(--white);
+                    }
+
+                    /* Shop */
+                    &>.newBadge__4ed1a {
+                        position: absolute;
+                        bottom: 0;
+                        transform: scale(0.7);
+
+                        &>.eyebrow_cf4812 {
+                            background-color: var(--badge-notification-background);
+                            color: var(--white);
+
+                            &>svg {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@container style(--server-tabs:true) {
+    .scroller__629e4 {
+
+        &>.content_d125d2 {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            justify-content: space-evenly;
+
+            &>div[style="height: 84px;"]:not([class]), /* banner */
+            &>div[style="height: 0px;"]:not([class]) { /* no banner */
+                width: 100%;
+
+                &+div[style="height: 8px;"]:not([class]), /* compact */
+                &+div[style="height: 12px;"]:not([class]) { /* default & spacious */
+                    width: 100%;
+
+                    /* 1 button */
+                    &+li:not([class]):has(+.sectionDivider__629e4) {
+                        width: 100%;
+
+                        &>.wrapper__2ea32 {
+                            margin-inline-start: var(--space-xs) !important;
+
+                            &>.basicChannelRowLink__2ea32 {
+                                padding: var(--space-xxs) var(--space-xs);
+                                padding-inline: var(--space-xs) !important;
+
+                                &>.content__65844 {
+                                    &>.name__2ea32 { 
+                                        display: unset; 
+                                    }
+
+                                    &>.textBadge__2b1f5 {
+                                        position: unset;
+                                        transform: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    /* boost bar */
+                    &+.container__0d0f9 {
+                        width: 100%;
+
+                        /* 1 button */
+                        &+li:not([class]):has(+.sectionDivider__629e4) {
+                            width: 100%;
+
+                            &>.wrapper__2ea32 {
+                                margin-inline-start: var(--space-xs) !important;
+
+                                &>.basicChannelRowLink__2ea32 {
+                                    padding: var(--space-xxs) var(--space-xs);
+                                    padding-inline: var(--space-xs) !important;
+
+                                    &>.content__65844 {
+                                        &>.name__2ea32 { 
+                                            display: unset; 
+                                        }
+
+                                        &>.textBadge__2b1f5 {
+                                            position: unset;
+                                            transform: none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &~.sectionDivider__629e4 {
+                        &+div[style="height: 8px;"]:not([class]), /* compact */
+                        &+div[style="height: 12px;"]:not([class]) { /* default & spacious */
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+            /* get started bar */
+            &>li:not([class]):has(>.progressBarContainer_baf530) {
+                width: 100%;
+
+                &>.progressBarContainer_baf530 {
+                    width: 100%;
+                    margin: 0 5px;
+                    max-width: calc(240px - 25px);
+                }
+
+                &>.divider_baf530 {
+                    width: 100%;
+                    margin: 15px 15px 3px;
+                    max-width: calc(240px - 25px);
+                }
+            }
+
+            &>li:not([class]) {
+                width: fit-content;
+
+                &>.wrapper__2ea32 {
+                    margin: 0;
+
+                    &>.unread__2ea32 { 
+                        display: none; 
+                    }
+
+                    &>.basicChannelRowLink__2ea32 {
+                        padding: 5px;
+
+                        &>.content__65844 {
+                            justify-content: center;
+
+                            &>.name__2ea32 { 
+                                display: none; 
+                            }
+
+                            &>.numberBadge__2ea32 {
+                                position: absolute;
+                                left: 17.5px;
+                                bottom: 0;
+                                transform: scale(0.7);
+                                background-color: var(--status-danger);
+                            }
+
+                            &>.textBadge__2b1f5 {
+                                position: absolute;
+                                bottom: 0;
+                                transform: scale(0.7);
+                            }
+                        }
+                    }
+                }
+            }
+
+            &>div:not([class]) {
+
+                &>li:not([class])>.wrapper__2ea32 {
+                    margin: 0;
+
+                    &>.basicChannelRowLink__2ea32 {
+                        padding: 5px;
+
+                        &>.content__65844>.name__2ea32 { 
+                            display: none; 
+                        }
+                    }
+                }
+            }
+
+            /* Game Shop */
+            &>.wrapper_fce7ca {
+
+                &>li>.wrapper__2ea32 {
+                    margin: 0;
+        
+                    &>.basicChannelRowLink__2ea32 {
+                        padding: 5px;
+            
+                        &>.content__65844 {
+                            justify-content: center;
+
+                            &>.name__2ea32 {
+                                display: none;
+                            }
+
+                            &>.textBadge__2b1f5 {
+                                position: absolute;
+                                bottom: 0;
+                                transform: scale(0.7);
+                            }
+                        }
+                    }
+                }
+            }
+
+            /* fix elements width */
+
+            &>.containerDefault__29444, /* category */
+            &>.containerDefault_c69b6d, /* channel */
+            &>.container__5b40b { /* thread */
+                width: stretch; 
+            }
+        }
+    }
+}
+
+:root {
+  --server-tabs: true;
+  --dms-tabs: true;
+}
