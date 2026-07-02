@@ -6,7 +6,7 @@
     align-items: end;
     justify-content: end;
 
-    .numberBadge__2b1f5 {
+    .numberBadge__463b7 {
         animation: 0.75s ease 0s ping-anim;
         animation-iteration-count: 1;
         border-radius: 10px;
@@ -20,7 +20,7 @@
     align-items: end;
     justify-content: end;
 
-    .numberBadge__2b1f5 {
+    .numberBadge__463b7 {
         animation: 0.75s ease 0s ping-anim;
         animation-iteration-count: 1;
         border-radius: 14px;
@@ -29,7 +29,7 @@
 }
 .blobContainer_e5445c:hover,
 .folderButton__48112:hover {
-    .numberBadge__2b1f5 {
+    .numberBadge__463b7 {
         width: 100% !important;
         height: 100%;
         font-size: 16px;
