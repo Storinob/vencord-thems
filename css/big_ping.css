@@ -6,13 +6,14 @@
     align-items: end;
     justify-content: end;
 
-    .numberBadge__463b7 {
+    .numberBadge__2b1f5 {
         animation: 0.75s ease 0s ping-anim;
         animation-iteration-count: 1;
         border-radius: 10px;
         transition: all 0.1875s ease;
     }
 }
+
 .folderButton__48112>.wrapper_cc5dd2>.lowerBadge_cc5dd2 {
     width: 100%;
     height: 100%;
@@ -20,21 +21,24 @@
     align-items: end;
     justify-content: end;
 
-    .numberBadge__463b7 {
+    .numberBadge__2b1f5 {
         animation: 0.75s ease 0s ping-anim;
         animation-iteration-count: 1;
         border-radius: 14px;
         transition: all 0.1875s ease;
     }
 }
+
 .blobContainer_e5445c:hover,
 .folderButton__48112:hover {
-    .numberBadge__463b7 {
+    .numberBadge__2b1f5 {
         width: 100% !important;
         height: 100%;
         font-size: 16px;
     }
 }
+
+
 @keyframes ping-anim {
 
     25% {
@@ -49,6 +53,7 @@
         font-size: 16px;
     }
 }
+
 .wrapper__58105 {
-    opacity: 1; /* 0.25 */
+    opacity: 0.25;
 }
