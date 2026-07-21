@@ -1,52 +1,113 @@
-import { currentNotice, noticesQueue, popNotice, showNotice } from "@api/Notices";
 import { definePluginSettings } from "@api/Settings";
+import { getUserSettingLazy } from "@api/UserSettings";
 import { Devs } from "@utils/constants";
-import definePlugin, { makeRange, OptionType } from "@utils/types";
-import { FluxDispatcher } from "@webpack/common";
+import definePlugin, { OptionType, type PluginSettingComponentProps } from "@utils/types";
+import { React } from "@webpack/common";
+import type { ChangeEvent } from "react";
+
+const StatusSettings = getUserSettingLazy<string>("status", "status")!;
+
+let changedStatusForGame = false;
+
+const IDLE_TIMEOUTS = [2, 5, 10, 15, 30, 60, 120, 180, 300, 420, 600] as const;
+const DEFAULT_IDLE_TIMEOUT = 600;
+
+function getIdleTimeoutIndex(value: number) {
+    const index = IDLE_TIMEOUTS.indexOf(value as typeof IDLE_TIMEOUTS[number]);
+    return index === -1 ? IDLE_TIMEOUTS.indexOf(DEFAULT_IDLE_TIMEOUT) : index;
+}
+
+function formatTimeout(seconds: number) {
+    if (seconds < 60) return `${seconds}s`;
+
+    const minutes = seconds / 60;
+    return `${minutes}m`;
+}
+
+function IdleTimeoutSlider({ setValue }: PluginSettingComponentProps) {
+    const value = Number(settings.store.idleTimeoutSeconds ?? DEFAULT_IDLE_TIMEOUT);
+    const selectedIndex = getIdleTimeoutIndex(value);
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) =>
+        setValue(IDLE_TIMEOUTS[Number(event.currentTarget.value)]);
+
+    return (
+        React.createElement("div", { style: { paddingTop: 8 } },
+            React.createElement("div", {
+                style: {
+                    display: "flex",
+                    justifyContent: "space-between",
+                    marginBottom: 6,
+                    fontSize: 12,
+                    lineHeight: "16px",
+                    color: "var(--text-muted)"
+                }
+            },
+            IDLE_TIMEOUTS.map(seconds =>
+                React.createElement("span", {
+                    key: seconds,
+                    style: {
+                        width: 32,
+                        textAlign: "center",
+                        color: seconds === value ? "var(--text-normal)" : undefined
+                    }
+                }, formatTimeout(seconds))
+            )),
+            React.createElement("input", {
+                type: "range",
+                min: 0,
+                max: IDLE_TIMEOUTS.length - 1,
+                step: 1,
+                value: selectedIndex,
+                onChange: handleChange,
+                style: {
+                    width: "100%",
+                    accentColor: "var(--brand-500)"
+                }
+            })
+        )
+    );
+}
+
 const settings = definePluginSettings({
-    idleTimeout: {
-        description: "Seconds before Discord goes idle (0 = never)",
-        type: OptionType.SLIDER,
-        markers: makeRange(0, 30, 1),
-        default: 5,
-        stickToMarkers: true
+    idleTimeoutSeconds: {
+        description: "Seconds before Discord goes idle",
+        type: OptionType.COMPONENT,
+        component: IdleTimeoutSlider,
+        default: DEFAULT_IDLE_TIMEOUT,
+        restartNeeded: true
     },
-    remainInIdle: {
-        description: "Require confirmation before returning online",
+    idleWhilePlaying: {
         type: OptionType.BOOLEAN,
+        description: "Set status to idle while playing a game, but only if you were online",
+        default: true
+    },
+    resetIdleOnStart: {
+        type: OptionType.BOOLEAN,
+        description: "Auto-change status from Idle to Online when Discord starts",
         default: true
     }
 });
-let isWindowFocused = true;
-let blurTimeout: number | null = null;
-function getIdleDelayMs(): number | null {
-    const seconds = settings.store.idleTimeout;
-    return seconds === 0 ? null : seconds * 1000;
-}
-const onFocus = () => {
-    isWindowFocused = true;
-    if (blurTimeout) {
-        clearTimeout(blurTimeout);
-        blurTimeout = null;
-    }
-};
-const onBlur = () => {
-    isWindowFocused = false;
-    if (blurTimeout) {
-        clearTimeout(blurTimeout);
-        blurTimeout = null;
-    }
-    const delay = getIdleDelayMs();
-    if (delay == null) return;
-    blurTimeout = setTimeout(() => {
-        FluxDispatcher.dispatch({ type: "IDLE", idle: true });
-    }, delay);
-};
+
 export default definePlugin({
-    name: "CustomIdle2",
-    description: "Switching to Idle when inactive or unfocus Discord window and then returning",
-    //authors: [Devs.],
+    name: "NewIdle",
+    description: "Sets a custom Discord idle timeout, switches to idle while playing, and resets idle on startup.",
+    tags: ["Activity", "Utility", "Customisation"],
+    authors: [Devs.newwares, Devs.thororen],
     settings,
+    
+    start() {
+        if (settings.store.resetIdleOnStart) {
+            const currentStatus = StatusSettings.getSetting();
+            
+            // Если при запуске клиент застрял в "неактивен", сбрасываем в "онлайн".
+            // Если игра в этот момент запущена, последующее событие RUNNING_GAMES_CHANGE
+            // само переведет статус обратно в "неактивен".
+            if (currentStatus === "idle") {
+                StatusSettings.updateSetting("online");
+            }
+        }
+    },
+
     patches: [
         {
             find: 'type:"IDLE",idle:',
@@ -56,42 +117,48 @@ export default definePlugin({
                     replace: "$self.getIdleTimeout()||"
                 },
                 {
-                    match: /\i\.\i\.dispatch\({type:"IDLE",idle:!1}\)/,
-                    replace: "$self.handleOnline()"
+                    match: /Math\.min\((\i\*\i\.\i\.\i\.SECOND),\i\.\i\)/,
+                    replace: "$1"
                 }
             ]
         }
     ],
-    start() {
-        window.addEventListener("focus", onFocus);
-        window.addEventListener("blur", onBlur);
-    },
-    stop() {
-        if (blurTimeout) clearTimeout(blurTimeout);
-        window.removeEventListener("focus", onFocus);
-        window.removeEventListener("blur", onBlur);
-    },
-    handleOnline() {
-        if (!isWindowFocused) return;
-        if (!settings.store.remainInIdle) {
-            FluxDispatcher.dispatch({ type: "IDLE", idle: false });
-            return;
+    
+    flux: {
+        RUNNING_GAMES_CHANGE({ games }) {
+            if (!settings.store.idleWhilePlaying) return;
+
+            const hasRunningGame = games.length > 0;
+
+            if (hasRunningGame) {
+                // ОПТИМИЗАЦИЯ: Если мы уже перевели статус для текущей игры,
+                // сразу прерываем функцию, чтобы не делать холостых проверок.
+                if (changedStatusForGame) return;
+
+                const status = StatusSettings.getSetting();
+                
+                // Переводим в idle только из чистого онлайна.
+                if (status === "online") {
+                    changedStatusForGame = true;
+                    StatusSettings.updateSetting("idle");
+                }
+                return;
+            }
+
+            // Логика закрытия игры
+            if (changedStatusForGame) {
+                changedStatusForGame = false;
+                
+                const status = StatusSettings.getSetting();
+                // Возвращаем онлайн, только если статус не был изменен пользователем вручную во время игры.
+                if (status === "idle") {
+                    StatusSettings.updateSetting("online");
+                }
+            }
         }
-        const message =
-            "You are back. Click to go online, or close to remain idle.";
-        if (
-            currentNotice?.[1] === message ||
-            noticesQueue.some(([, m]) => m === message)
-        ) return;
-        showNotice(message, "Go online", () => {
-            popNotice();
-            FluxDispatcher.dispatch({ type: "IDLE", idle: false });
-        });
     },
+
     getIdleTimeout() {
-        const seconds = settings.store.idleTimeout;
-        return seconds === 0
-            ? 0x7fffffff
-            : seconds * 1000;
+        return settings.store.idleTimeoutSeconds * 1000;
     }
 });
