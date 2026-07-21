@@ -92,16 +92,13 @@ export default definePlugin({
     name: "NewIdle",
     description: "Sets a custom Discord idle timeout, switches to idle while playing, and resets idle on startup.",
     tags: ["Activity", "Utility", "Customisation"],
-    authors: [Devs.newwares, Devs.thororen],
+    authors: [Devs.Storinob],
     settings,
     
     start() {
         if (settings.store.resetIdleOnStart) {
             const currentStatus = StatusSettings.getSetting();
             
-            // Если при запуске клиент застрял в "неактивен", сбрасываем в "онлайн".
-            // Если игра в этот момент запущена, последующее событие RUNNING_GAMES_CHANGE
-            // само переведет статус обратно в "неактивен".
             if (currentStatus === "idle") {
                 StatusSettings.updateSetting("online");
             }
@@ -131,13 +128,10 @@ export default definePlugin({
             const hasRunningGame = games.length > 0;
 
             if (hasRunningGame) {
-                // ОПТИМИЗАЦИЯ: Если мы уже перевели статус для текущей игры,
-                // сразу прерываем функцию, чтобы не делать холостых проверок.
                 if (changedStatusForGame) return;
 
                 const status = StatusSettings.getSetting();
                 
-                // Переводим в idle только из чистого онлайна.
                 if (status === "online") {
                     changedStatusForGame = true;
                     StatusSettings.updateSetting("idle");
@@ -145,12 +139,10 @@ export default definePlugin({
                 return;
             }
 
-            // Логика закрытия игры
             if (changedStatusForGame) {
                 changedStatusForGame = false;
                 
                 const status = StatusSettings.getSetting();
-                // Возвращаем онлайн, только если статус не был изменен пользователем вручную во время игры.
                 if (status === "idle") {
                     StatusSettings.updateSetting("online");
                 }
